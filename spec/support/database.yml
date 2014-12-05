@@ -1,0 +1,7 @@
+memory:
+  adapter: 'sqlite3'
+  database: ':memory:'
+
+dummy_db:
+  adapter: 'sqlite3'
+  database: 'spec/db/dummy.sqlite3'
