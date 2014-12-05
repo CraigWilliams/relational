@@ -2,6 +2,11 @@
 
 ### ActiveRecord helpers
 
+This is the beginning of an ActiveRecord helper gem that simplifies  
+some of the boilerplate code needed to use ActiveRecord.
+
+The first of which is:
+
 `has_many_though`
 
 Normally, we write has many through like this
@@ -33,6 +38,14 @@ using the `roles_users` table
 has_many_through :roles_users
 ```
 
+### Even shorter
+
+Along the lines of brevity, the shortcut `hmt` is available
+
+```ruby
+hmt :roles_users
+```
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -48,6 +61,10 @@ And then execute:
 Or install it yourself as:
 
     $ gem install relational
+
+## Todo
+
+1. Add options for has many through
 
 ## Contributing
 

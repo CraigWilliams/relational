@@ -1,8 +1,8 @@
 module Relational
   module Strategies
-    module Factory
+    NotFound = Class.new(NoMethodError)
 
-      RelationalStrategyNotFoundError = Class.new(NoMethodError)
+    module Factory
 
       def self.for(options = {})
         available_strategies.each do |strategy|
