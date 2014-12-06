@@ -3,7 +3,9 @@ module Relational
     class JoinTableStrategy < Base
 
       def self.applicable_for?(options)
-        options[:resource_name].present? && options[:join_table_name].nil?
+        options[:resource_name].present? &&
+        options[:join_table_name].nil? &&
+        !options[:resource_name].to_s.include?('through')
       end
 
       def has_many_join_table

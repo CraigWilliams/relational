@@ -2,7 +2,7 @@
 
 ### ActiveRecord helpers
 
-This is the beginning of an ActiveRecord helper gem that simplifies  
+This is an ActiveRecord helper gem that simplifies  
 some of the boilerplate code needed to use ActiveRecord.
 
 The first of which is:
@@ -46,6 +46,19 @@ Along the lines of brevity, the shortcut `hmt` is available
 hmt :roles_users
 ```
 
+### Through syntax
+
+If you want to specify the the resource and the join table  
+but the table name does not include the resource name,  
+you can use `through`.
+
+In this example, the `resource` is `invoices` and the  
+join table is `clients`
+
+```ruby
+hmt :invoices_through_clients
+```
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -61,10 +74,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install relational
-
-## Todo
-
-1. Add options for has many through
 
 ## Contributing
 

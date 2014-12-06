@@ -16,7 +16,8 @@ module Relational
       def self.available_strategies
         [
           JoinTableStrategy,
-          BothValuesStrategy
+          BothValuesStrategy,
+          ThroughStrategy
         ]
       end
     end

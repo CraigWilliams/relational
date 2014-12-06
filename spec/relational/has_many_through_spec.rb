@@ -51,4 +51,31 @@ describe Relational::HasManyThrough do
       expect { User.send(:hmt) }.to raise_error { Relational::Strategies::NotFound }
     end
   end
+
+  context 'supports additional options' do
+    before do
+      class User < ActiveRecord::Base
+        hmt :roles_users, dependent: :destroy
+      end
+      user.roles << role
+    end
+
+    it 'destroys the join relationship' do
+      expect { user.destroy }.to change { RolesUser.count }.by(-1)
+    end
+  end
+
+  context 'supports a roles_through_roles_users definition style' do
+    before do
+      class User < ActiveRecord::Base
+        hmt :roles_through_roles_users
+      end
+      user.roles << role
+      user.roles << Role.create(name: 'super_duper_admin')
+    end
+
+    it 'destroys the join relationship' do
+      expect(user.roles.count).to eq 2
+    end
+  end
 end

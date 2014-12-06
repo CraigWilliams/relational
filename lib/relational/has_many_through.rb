@@ -3,9 +3,10 @@ module Relational
 
     def self.included(base)
       base.class_eval do
-        def self.has_many_through(resource_table = nil, join_table = nil)
-          options = { resource: self, resource_name: resource_table, join_table_name: join_table }
-          strategy = Relational::Strategies::Factory.for(options)
+        def self.has_many_through(*args)
+          options = args.extract_options!
+          hmt_options = { resource: self, resource_name: args.shift, join_table_name: args.shift, options: options }
+          strategy = Relational::Strategies::Factory.for(hmt_options)
           strategy.apply
         end
 
