@@ -1,3 +1,5 @@
+[ ![Codeship Status for CraigWilliams/relational](https://codeship.com/projects/8ee97f50-616c-0132-7ade-6299e400ce23/status)](https://codeship.com/projects/51838)
+
 # Relational
 
 ### ActiveRecord helpers
